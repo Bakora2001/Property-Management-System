@@ -1,6 +1,4 @@
 // store.js
-import Vue from 'vue';
-import Vuex from 'vuex';
 import { createStore } from 'vuex';
 import axios from 'axios';
 
@@ -96,6 +94,7 @@ export default createStore({
   actions: {
     async addProperty({ commit, state }) {
       try {
+        console.log("Maxwel")
         const response = await api.post('/properties', state.newProperty);
         commit('addProperty', response.data);
         // ... other logic

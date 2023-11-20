@@ -22,7 +22,7 @@
 
     <ul class="mt-4">
       <li v-for="(property, index) in properties" :key="property.id" class="mb-2 p-2 border rounded flex items-center justify-between">
-        {{ property.name }} - {{ property.type }}
+        {{ property.name }} - {{property}} {{ property.type }}
         <div>
           <button @click="editProperty(index)" class="text-blue-500 mr-2">Edit</button>
           <button @click="deleteProperty(index)" class="text-red-500">Delete</button>
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import store from 'store.js';
+import store from '../store.js';
 
 export default {
   computed: {

@@ -17,9 +17,14 @@ import topNavigationBar from './components/topNavigationBar.vue';
 import baseDashboard from './components/baseDashboard.vue';
 import properties from './components/properties.vue';
 import propertyUnits from './components/propertyUnits.vue';
-import store from 'store.js';
 
 export default{
+    components:{
+        topNavigationBar,
+        baseDashboard,
+        properties,
+        propertyUnits
+    }
 
 }
 
