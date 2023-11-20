@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <topNavigationBar/>
     <baseDashboard>
     <div class="flex flex-col md:flex md:flex-row gap-8">
@@ -17,6 +17,7 @@ import topNavigationBar from './components/topNavigationBar.vue';
 import baseDashboard from './components/baseDashboard.vue';
 import properties from './components/properties.vue';
 import propertyUnits from './components/propertyUnits.vue';
+import store from 'store.js';
 
 export default{
 
@@ -26,10 +27,8 @@ export default{
 
 
 <style scoped>
-</style> -->
-<template>
-  dsuhdsbds dyubd 
-</template>
-<script>
+</style>
 
-</script>
+
+
+

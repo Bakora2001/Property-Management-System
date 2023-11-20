@@ -1,4 +1,4 @@
-<!-- PropertyUnits.vue -->
+
 <template>
   <div class="bg-white p-6 rounded shadow-lg">
     <h2 class="text-2xl font-bold mb-4">Property Units</h2>
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import store from 'store.js';
+
 export default {
   computed: {
     propertyUnits() {
@@ -53,6 +55,9 @@ export default {
     addPropertyUnit() {
       this.$store.dispatch('addPropertyUnit');
     },
+  },
+  created() {
+    this.$store.dispatch('fetchPropertyUnits');
   },
 };
 </script>

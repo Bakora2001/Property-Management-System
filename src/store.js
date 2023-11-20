@@ -2,8 +2,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { createStore } from 'vuex';
+import axios from 'axios';
 
-Vue.use(Vuex);
+const api = axios.create({
+  baseURL: 'http://localhost:3000',
+});
 
 export default createStore({
   state: {
@@ -91,6 +94,40 @@ export default createStore({
     },
   },
   actions: {
+    async addProperty({ commit, state }) {
+      try {
+        const response = await api.post('/properties', state.newProperty);
+        commit('addProperty', response.data);
+        // ... other logic
+      } catch (error) {
+        console.error('Error adding property:', error);
+      }
+    },
+    async addPropertyUnit({ commit, state }) {
+      try {
+        const response = await api.post('/propertyUnits', state.newPropertyUnit);
+        commit('addPropertyUnit', response.data);
+        // ... other logic
+      } catch (error) {
+        console.error('Error adding property unit:', error);
+      }
+    },
+    async fetchProperties({ commit }) {
+      try {
+        const response = await api.get('/properties');
+        commit('setProperties', response.data);
+      } catch (error) {
+        console.error('Error fetching properties:', error);
+      }
+    },
+    async fetchPropertyUnits({ commit }) {
+      try {
+        const response = await api.get('/propertyUnits');
+        commit('setPropertyUnits', response.data);
+      } catch (error) {
+        console.error('Error fetching property units:', error);
+      }
+    },
     addProperty({ commit }) {
       commit('addProperty');
     },
@@ -119,3 +156,5 @@ export default createStore({
     getNewPropertyUnit: state => state.newPropertyUnit,
   },
 });
+
+

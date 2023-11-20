@@ -1,4 +1,4 @@
-<!-- Properties.vue -->
+
 <template>
   <div class="bg-white p-6 rounded shadow-lg">
     <h2 class="text-2xl font-bold mb-4">Properties</h2>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import store from 'store.js';
+
 export default {
   computed: {
     properties() {
@@ -81,5 +83,9 @@ export default {
       this.$store.dispatch('cancelEdit');
     },
   },
+  created() {
+    this.$store.dispatch('fetchProperties');
+  },
 };
 </script>
+
